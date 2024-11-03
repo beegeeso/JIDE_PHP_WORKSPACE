@@ -10,8 +10,14 @@
     "vscode": {
       "extensions": [
         "felixfbecker.php-debug",
-        "xdebug.php-pack"
-      ]
+        "xdebug.php-pack",
+        "zhuangtongfa.material-theme"
+      ],
+      "settings": {
+        "php.validate.executablePath": "/usr/bin/php",  // Set the PHP path
+        "php.debug.executablePath": "/usr/bin/php",    // Set the PHP path for debugging
+        "workbench.colorTheme": "One Dark Pro"         // Set the theme to One Dark Pro
+      }
     }
   }
 }
