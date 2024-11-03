@@ -1,24 +1,26 @@
 FROM ubuntu:22.04
 
-# Set environment variable to avoid prompts
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install Apache, PHP, and other dependencies
+# Install Apache, PHP, and sudo
 RUN apt-get update && \
-    apt-get install -y apache2 php libapache2-mod-php tzdata && \
+    apt-get install -y apache2 php libapache2-mod-php sudo && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-# Reset the DEBIAN_FRONTEND variable to default
-ENV DEBIAN_FRONTEND=
 
 # Set up Apache
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
     a2enmod rewrite
 
+# Remove default content from /var/www/html
+RUN rm -rf /var/www/html/*
+
+# Copy the entire sample-webapp folder into /var/www
+COPY ucw /var/www/html
+
 # Create a symlink to /var/www/html in the workspace directory
 RUN mkdir -p /workspace && \
-    ln -s /var/www/html /workspace/html
+    ln -s /var/www/html /workspace
 
 WORKDIR /workspace
 
