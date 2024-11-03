@@ -1,0 +1,18 @@
+{
+    "name": "PHP Apache Workspace",
+    "build": {
+      "dockerfile": "Dockerfile"
+    },
+    "workspaceFolder": "/workspace",
+    "forwardPorts": [80],
+    "postCreateCommand": "sudo service apache2 start",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "felixfbecker.php-debug",
+          "xdebug.php-pack"
+        ]
+      }
+    }
+  }
+  
