@@ -16,7 +16,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
 RUN rm -rf /var/www/html/*
 
 # Copy the entire sample-webapp folder into /var/www
-COPY ucw /var/www/html
+ADD ucw /var/www/html
 
 # Create a symlink to /var/www/html in the workspace directory
 RUN mkdir -p /workspace && \
