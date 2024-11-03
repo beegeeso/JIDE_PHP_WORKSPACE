@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Install Apache, PHP, and sudo
 RUN apt-get update && \
-    apt-get install -y apache2 php libapache2-mod-php sudo && \
+    apt-get install -y apache2 php libapache2-mod-php sudo git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
